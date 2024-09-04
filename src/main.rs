@@ -13,7 +13,7 @@ enum Message {
 fn main() {
     let app = app::App::default().with_scheme(fltk::app::Scheme::Gleam);
 
-    let mut win = fltk::window::Window::new(100, 100, 400, 300, "Rustulator");
+    let mut win = fltk::window::Window::new(100, 100, 400, 300, "ClickyButton");
     let mut frame = fltk::frame::Frame::new(0, 0, 400, 300, "");
     frame.set_color(fltk::enums::Color::White);
 
