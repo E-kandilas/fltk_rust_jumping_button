@@ -1,4 +1,4 @@
-use fltk::{prelude::*, button::Button, enums::{Color, FrameType}, app, *};
+use fltk::{prelude::*, button::Button, enums::{Color, FrameType}, app};
 use fltk::enums::Event;
 use rand::Rng;
 
