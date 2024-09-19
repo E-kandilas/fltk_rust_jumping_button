@@ -31,6 +31,13 @@ fn main() {
   but.set_label_size(20);
   but.set_selection_color(Color::Green);
 
+  let mut counter = 0;
+  let mut counter_frame = fltk::frame::Frame::new((WIN_WIDTH - 200) / 2, 10, 200, 40, "Num Clicks:");
+  counter_frame.set_label_size(24);
+  counter_frame.set_label_color(Color::Blue);
+  counter_frame.set_frame(FrameType::FlatBox);
+  counter_frame.set_color(Color::White);
+
   but.handle(move |b, evt| match evt {
     Event::Enter => {
       b.set_color(Color::XtermBgYellow);
@@ -56,6 +63,8 @@ fn main() {
     if let Some(msg) = receiver.recv() {
       match msg {
         Message::Spaz => {
+          counter += 1;
+          counter_frame.set_label(&format!("Num Clicks: {}", counter));
           let rand_x = rand::thread_rng().gen_range(0..(WIN_WIDTH - BUTTON_WIDTH));
           let rand_y = rand::thread_rng().gen_range(0..(WIN_HEIGHT - BUTTON_HEIGHT));
           but.resize(rand_x, rand_y, BUTTON_WIDTH, BUTTON_HEIGHT);
